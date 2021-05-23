@@ -1,0 +1,95 @@
+{
+    "helpMenu": {
+        "title": "`Dr. Frensky Help Menu`",
+        "description": "*All of Dr. Frensky's functionalities are described here(njakoi ne sa, ama she mi lapate patkata).*\n\n",
+        "color": 8847776,
+        "author": {
+          "name": "Dr. Frensky",
+          "icon_url": "https://images-ext-2.discordapp.net/external/tWVcgWNBwbNLxBe5j4Bn7mvNyos2uU7NKjDOTxGdOBk/https/cdn.discordapp.com/avatars/843815287471996949/5c109fecfcf2f5507a25a92ac4d4c462.webp"
+        },
+        "fields": [
+          {
+            "name": ":newspaper:  GENERAL COMMANDS",
+            "value": "```js\nType \">>help general\" in chat```"
+          },
+          {
+            "name": ":musical_note: MUSIC COMMANDS",
+            "value": "```js\nType \">>help music\" in chat```"
+          }
+        ]
+    },
+    "generalMenu": {
+        "title": ":newspaper: GENERAL COMMANDS",
+        "description": "**A list of all (current) general commands.**\n\n",
+        "color": 8847776,
+        "author": {
+          "name": "Dr. Frensky",
+          "icon_url": "https://images-ext-2.discordapp.net/external/tWVcgWNBwbNLxBe5j4Bn7mvNyos2uU7NKjDOTxGdOBk/https/cdn.discordapp.com/avatars/843815287471996949/5c109fecfcf2f5507a25a92ac4d4c462.webp"
+        },
+        "fields": [
+          {
+            "name": ":middle_finger: `Curse - throws a random curse your way`",
+            "value": "```js\nUsage: \">>curse\"```"
+          },
+          {
+            "name": ":pencil: `Solve - solves a mathematical expression`",
+            "value": "```js\nUsage: \">>solve <expr>\"```"
+          },
+          {
+            "name": ":tools: `Botstats - shows information about the bot`",
+            "value": "```js\nUsage: \">>botstats\"```"
+          },
+          {
+            "name": ":arrow_down: `Download - downloads given media from a youtube URL`",
+            "value": "```js\nUsage: \">>dload <mp3_or_mp4> <link>\"```"
+          },
+          {
+            "name": ":tongue: `Unholy - does questionable things`",
+            "value": "```js\nUsage: \">>unholy\"```"
+          }
+        ]
+    },
+    "musicMenu": {
+        "title": ":musical_note: MUSIC COMMANDS",
+        "description": "**A list of all (current) commands, regarding music.**\n\n",
+        "color": 8847776,
+        "author": {
+          "name": "Dr. Frensky",
+          "icon_url": "https://images-ext-2.discordapp.net/external/tWVcgWNBwbNLxBe5j4Bn7mvNyos2uU7NKjDOTxGdOBk/https/cdn.discordapp.com/avatars/843815287471996949/5c109fecfcf2f5507a25a92ac4d4c462.webp"
+        },
+        "fields": [
+          {
+            "name": ":play_pause: `Play - queues a music track`",
+            "value": "```js\nUsage: \">>play <track_name>\"```"
+          },
+          {
+            "name": ":arrow_backward:  `Backtrace - goes to the previous track in the queue`",
+            "value": "```js\nUsage: \">>goback\"```"
+          },
+          {
+            "name": ":arrow_forward: `Skip - goes to the next track in the queue`",
+            "value": "```js\nUsage: \">>skip\"```"
+          },
+          {
+            "name": ":repeat: `Loop - loops the queue`",
+            "value": "```js\nUsage: \">>loop\"```"
+          },
+          {
+            "name": ":twisted_rightwards_arrows: `Shuffle - shuffles the queue`",
+            "value": "```js\nUsage: \">>shuffle\"```"
+          },
+          {
+            "name": ":scroll: `Queue - shows the current queue`",
+            "value": "```js\nUsage: \">>queue\"```"
+          },
+          {
+            "name": ":wave: `Leave - makes the bot leave the voice channel it's in`",
+            "value": "```js\nUsage: \">>leave\"```"
+          },
+          {
+            "name": ":dvd: `Playlist - queues up an entire playlist`",
+            "value": "```js\nUsage: \">>playlist <yt_playlist_link>\"```"
+          }
+        ]
+    }
+}
