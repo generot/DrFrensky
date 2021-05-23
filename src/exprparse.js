@@ -10,6 +10,10 @@ function Tokenize(inputstr) {
     return inputstr.matchAll(regex);
 }
 
+/**
+ * @param {String} inputstr 
+ * @returns {Boolean}
+ */
 function CheckOper(str) {
     const oper = /[+\-\/*\^]/;
     return str.match(oper) != null;

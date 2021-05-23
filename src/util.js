@@ -17,8 +17,20 @@ const { PlayQueue } = require("../src/defs.js");
 
     currTrack.info.title = "Now playing...";
 
+    let info = await ytdl.getInfo(currTrack.url);
+    const webmFormat = info.formats.filter(elem => elem.container == 'webm' && elem.hasAudio)[0];
+
+    if(!webmFormat) {
+        textCh.send("Webm format not found, omitting track...");
+        ref.Advance();
+
+        return null;
+    }
+
+    const stream = ytdl(currTrack.url, { quality: "highestaudio", format: webmFormat });
+
     let prevMsg = await textCh.send(new Discord.MessageEmbed(currTrack.info));
-    let dispatcher = voiceCon.play(ytdl(currTrack.url, { quality: "highestaudio" }));
+    let dispatcher = voiceCon.play(stream, { type: "webm/opus" });
 
     return new Promise(resolve => {
         dispatcher.on("finish", () => {
@@ -66,6 +78,9 @@ function CreateQueue(guildId) {
     return newQueue;
 }
 
+/**
+ * @param {Number} secs 
+ */
 function SecondsToTime(secs) {
     const wholeSecs = Math.floor(secs);
 

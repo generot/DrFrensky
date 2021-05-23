@@ -4,12 +4,23 @@ const ytdl = require("ytdl-core");
 
 const { PlayQueue } = require("../src/defs.js");
 
-function PlayMultiple(msg, args, client, queueArr) {
+/**
+ * @param {Discord.Message} msg 
+ * @param {String} args 
+ * @param {Discord.Client} client 
+ * @param {Array<PlayQueue>} queueArr 
+ * @returns 
+ */
+async function PlayMultiple(msg, args, client, queueArr) {
     const regex = /(?<=\[).*(?=\])/;
     let match = args.match(regex)[0];
 
     let trackNames = match.split(",").map(elem => elem.trim());
-    trackNames.forEach(track => Play(msg, track, client, queueArr))
+
+    for(let track of trackNames) {
+        let res = await Play(msg, track, client, queueArr);
+        if(!res) return false;
+    }
 }
 
 /** 
@@ -30,13 +41,13 @@ function PlayMultiple(msg, args, client, queueArr) {
             description: `${err}`
         }));
 
-        return null;
+        return false;
     }
 
     const first = searchRes.items[0];
     if(!first) {
         msg.channel.send("Nishto ne namerihme, tupa rabota.");
-        return;
+        return false;
     }
 
     const url = `https://www.youtube.com/watch?v=${first.id}`;
@@ -66,6 +77,8 @@ function PlayMultiple(msg, args, client, queueArr) {
         },
         url: url
     });
+
+    return true;
 }
 
 /**
