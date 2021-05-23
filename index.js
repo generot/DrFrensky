@@ -1,12 +1,14 @@
 const Discord = require("discord.js");
-const { CreateQueue } = require("../DrFrensky/src/util.js");
+const envConfig = require("dotenv").config();
 
 const client = new Discord.Client();
 const guildQueues = {};
 
-//This JSON file will never make it to the repo :)
-const { token, prefix } = require("../DrFrensky/json/important.json");
-const { ExecuteCommand } = require("../DrFrensky/src/match_cmd.js");
+const { ExecuteCommand } = require("./src/match_cmd.js");
+const { CreateQueue } = require("./src/util.js");
+
+const token = process.env.FR_TOKEN;
+const prefix = process.env.FR_PREFIX;
 
 client.on("ready", () => {
     console.log("---------READY---------");

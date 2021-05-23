@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const search = require("youtube-search-api");
 const ytdl = require("ytdl-core");
 
-const { PlayQueue } = require("../src/defs.js");
+const { PlayQueue } = require("./defs.js");
 
 /**
  * @param {Discord.Message} msg 

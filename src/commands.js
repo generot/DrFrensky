@@ -2,10 +2,10 @@ const Discord = require("discord.js");
 const process = require("process");
 const fetch = require("node-fetch");
 
-const { SecondsToTime } = require("../src/util.js");
+const { SecondsToTime } = require("./util.js");
 
-const Music = require("../src/musiccmd.js");
-const Parser = require("../src/exprparse.js");
+const Music = require("./musiccmd.js");
+const Parser = require("./exprparse.js");
 
 const curses = require("../json/curses.json");
 const Schemas = require("../json/schemas.json");
