@@ -90,9 +90,8 @@ function Value() {
 
     if(tokenArr[ix++] == '(') {
         retVal = Term();
-        ix++;
-
-        if(tokenArr[ix] != ')') 
+        
+        if(tokenArr[ix++] != ')') 
             throw new Error("Missing matching parentheses");
     }
 
