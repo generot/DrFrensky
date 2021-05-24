@@ -82,14 +82,12 @@ function CreateQueue(guildId) {
  * @param {Number} secs 
  */
 function SecondsToTime(secs) {
-    const wholeSecs = Math.floor(secs);
+    const wholeSecs = Math.floor(secs), 
+          mins = Math.floor(wholeSecs / 60),
+          hours = Math.floor(mins / 60),
+          days = Math.floor(hours / 24);
 
-    const minutes = wholeSecs / 60, roundedM = Math.floor(minutes);
-    const hours = minutes / 60, roundedH = Math.floor(hours);
-
-    const displayMins = Math.floor((hours - roundedH) * 60), displaySec = Math.floor((minutes - roundedM) * 60);
-
-    return `${roundedH} hrs. ${displayMins} min. ${displaySec} sec.`;
+    return `${days > 0 ? `${days} days` : ""}${hours % 24} hrs. ${mins % 60} min. ${wholeSecs % 60} sec.`;
 }
 
 module.exports = { SecondsToTime, CreateQueue };
