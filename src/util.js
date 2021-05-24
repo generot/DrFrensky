@@ -90,4 +90,11 @@ function SecondsToTime(secs) {
     return `${days > 0 ? `${days} days` : ""}${hours % 24} hrs. ${mins % 60} min. ${wholeSecs % 60} sec.`;
 }
 
-module.exports = { SecondsToTime, CreateQueue };
+/**
+ * 
+ * @param {Discord.User} user 
+ * @returns 
+ */
+function Tag(user) { return `<@${user.id}>`; }
+
+module.exports = { SecondsToTime, CreateQueue, Tag };

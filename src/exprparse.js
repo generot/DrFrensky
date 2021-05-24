@@ -7,6 +7,8 @@ let ix = 0;
  */
 function Tokenize(inputstr) {
     const regex = /[\d\.]+|[+-\/*\(\)\^]/g;
+    if(inputstr.match(/[a-zA-Z]+/)) return null;
+
     return inputstr.matchAll(regex);
 }
 
@@ -89,6 +91,9 @@ function Value() {
     if(tokenArr[ix++] == '(') {
         retVal = Term();
         ix++;
+
+        if(tokenArr[ix] != ')') 
+            throw new Error("Missing matching parentheses");
     }
 
     if(isNaN(retVal)) {

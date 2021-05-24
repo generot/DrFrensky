@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const process = require("process");
 const fetch = require("node-fetch");
 
-const { SecondsToTime } = require("./util.js");
+const { SecondsToTime, Tag } = require("./util.js");
 
 const Music = require("./musiccmd.js");
 const Parser = require("./exprparse.js");
@@ -92,13 +92,19 @@ function GetBotStats(msg, client) {
  */
 function Solve(msg, expr, client) {
     const tokens = Parser.Tokenize(expr);
+    let result = null;
 
-    if(!Parser.InitParser(tokens)) {
-        msg.channel.send("Ne se pishat izrazi taka be! Bez cluttervane na shibani znaci.");
+    if(!tokens || !Parser.InitParser(tokens)) {
+        msg.channel.send(`${Tag(msg.author)} Ne se pishat izrazi taka be!`);
         return;
     }
 
-    const result = Parser.Term();
+    try {
+        result = Parser.Term();
+    } catch(err) {
+        msg.channel.send(`${Tag(msg.author)} Ti za skobi chuval li si be, momche. Trjabva da ima DVE!`);
+    }
+
     const round = (nm, dec) => Math.round(nm * Math.pow(10, dec)) / Math.pow(10, dec);
 
     const schema = {
