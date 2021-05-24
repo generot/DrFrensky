@@ -103,6 +103,7 @@ function Solve(msg, expr, client) {
         result = Parser.Term();
     } catch(err) {
         msg.channel.send(`${Tag(msg.author)} Ti za skobi chuval li si be, momche. Trjabva da ima DVE!`);
+        return;
     }
 
     const round = (nm, dec) => Math.round(nm * Math.pow(10, dec)) / Math.pow(10, dec);
