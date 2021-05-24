@@ -1,7 +1,7 @@
 {
     "helpMenu": {
         "title": "`Dr. Frensky Help Menu`",
-        "description": "*All of Dr. Frensky's functionalities are described here(njakoi ne sa, ama she mi lapate patkata).*\n\n",
+        "description": "*All of Dr. Frensky's functionalities are described here(njakoi ne sa, ama she mi lapate patkata). Go check the [Dr. Frensky GitHub repo](https://github.com/generot/DrFrensky) out.*\n\n",
         "color": 8847776,
         "author": {
           "name": "Dr. Frensky",
@@ -77,6 +77,10 @@
           {
             "name": ":twisted_rightwards_arrows: `Shuffle - shuffles the queue`",
             "value": "```js\nUsage: \">>shuffle\"```"
+          },
+          {
+            "name": ":notes: `Play multiple - queues a list of tracks`",
+            "value": "```js\nUsage: \">>pmul [<track_name>, ...]\"```"
           },
           {
             "name": ":scroll: `Queue - shows the current queue`",
