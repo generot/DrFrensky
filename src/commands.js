@@ -6,6 +6,7 @@ const { SecondsToTime, Tag } = require("./util.js");
 
 const Music = require("./musiccmd.js");
 const Parser = require("./exprparse.js");
+const JS = require("./jsvm.js");
 
 const curses = require("../json/curses.json");
 const Schemas = require("../json/schemas.json");
@@ -147,4 +148,4 @@ function Unholy(msg, client) {
     })));
 }
 
-module.exports = { Curse, Leave, GetBotStats, Solve, Help, Unholy, ...Music };
+module.exports = { Curse, Leave, GetBotStats, Solve, Help, Unholy, ...Music, ...JS };

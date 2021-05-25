@@ -97,4 +97,8 @@ function SecondsToTime(secs) {
  */
 function Tag(user) { return `<@${user.id}>`; }
 
-module.exports = { SecondsToTime, CreateQueue, Tag };
+async function Sleep(milisec) {
+    return new Promise(resolve => setTimeout(() => resolve(), milisec));
+}
+
+module.exports = { SecondsToTime, CreateQueue, Tag, Sleep };
