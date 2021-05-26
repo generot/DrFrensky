@@ -20,13 +20,16 @@ async function CompileWrapper(msg, src) {
     let retVal = null;
     passedArgs = [];
 
+    const regex = /(?<=```js\s?)(.|\s)*(?=```)/;
+    const lexedSrc = src.match(regex);
+
     let prevMsg = await msg.channel.send(`${Util.Tag(msg.author)} Daj argumenti. Chakam 7 sekundi maks. Polzvaj >>pass`);
     await Util.Sleep(7 * 1000);
 
     prevMsg.delete();
 
     try {
-        retVal = CompileJS(msg, passedArgs, src);
+        retVal = CompileJS(msg, passedArgs, lexedSrc ? lexedSrc[0] : src);
     } catch(err) {
         msg.channel.send(`${Util.Tag(msg.author)} Neshto si naebal v js koda, ama me murzi da pravja embed za tva.`);
     }
