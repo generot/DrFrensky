@@ -87,7 +87,7 @@ function SecondsToTime(secs) {
           hours = Math.floor(mins / 60),
           days = Math.floor(hours / 24);
 
-    return `${days > 0 ? `${days} days` : ""}${hours % 24} hrs. ${mins % 60} min. ${wholeSecs % 60} sec.`;
+    return `${days} days ${hours % 24} hrs. ${mins % 60} min. ${wholeSecs % 60} sec.`;
 }
 
 /**
