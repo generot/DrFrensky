@@ -148,4 +148,19 @@ function Unholy(msg, client) {
     })));
 }
 
-module.exports = { Curse, Leave, GetBotStats, Solve, Help, Unholy, ...Music, ...JS };
+/**
+ * 
+ * @param {Discord.Message} msg 
+ * @param {Discord.Client} client 
+ */
+function Avatar(msg) {
+    msg.channel.send(new Discord.MessageEmbed({
+        title: `**${msg.author.username}'s avatar**`,
+        image: {
+          url: msg.author.avatarURL()
+        },
+        color: 5301186
+    }));
+}
+
+module.exports = { Curse, Leave, GetBotStats, Solve, Help, Unholy, Avatar, ...Music, ...JS };

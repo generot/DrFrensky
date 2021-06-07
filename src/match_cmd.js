@@ -22,6 +22,7 @@ async function ExecuteCommand(handle, command, args) {
     case "help": commands.Help(message, args); break;
     case "jit": commands.CompileWrapper(message, args.join(" ")); break;
     case "pass": commands.PassArgs(args); break;
+    case "avatar": commands.Avatar(message, client); break;
     case "goback": queueArr[message.guild.id].Backtrace(message); break;
     case "skip": queueArr[message.guild.id].Advance(message); break;
     case "shuffle": queueArr[message.guild.id].Shuffle(); break;

@@ -27,7 +27,7 @@ client.on("message", async msg => {
         queueArr: guildQueues
     };
 
-    ExecuteCommand(handle, command, args);
+    ExecuteCommand(handle, command.toLowerCase(), args.map(x => x.toLowerCase()));
 });
 
 client.login(token);
