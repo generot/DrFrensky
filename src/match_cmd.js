@@ -20,8 +20,9 @@ async function ExecuteCommand(handle, command, args) {
     case "unholy": commands.Unholy(message, client); break;
     case "solve": commands.Solve(message, args.join(" "), client); break;
     case "help": commands.Help(message, args); break;
-    case "jit": commands.CompileWrapper(message, args.join(" ")); break;
-    case "pass": commands.PassArgs(args); break;
+    //Taking the js execution commands out of production, due to vulnerabilities coming with them.
+    //case "jit": commands.CompileWrapper(message, args.join(" ")); break;
+    //case "pass": commands.PassArgs(args); break;
     case "avatar": commands.Avatar(message, client); break;
     case "goback": queueArr[message.guild.id].Backtrace(message); break;
     case "skip": queueArr[message.guild.id].Advance(message); break;

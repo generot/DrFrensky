@@ -21,6 +21,8 @@ client.on("message", async msg => {
     if(!msg.content.startsWith(prefix)) return;
 
     const [ command, ...args ] = msg.content.substr(prefix.length).trim().split(" ");
+    //if(command == "cast") console.log(client.users.cache)//.find(m => m.username == "Necoco").send(args.join());
+
     const handle = { 
         message: msg, 
         client: client,
