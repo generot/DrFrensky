@@ -81,6 +81,60 @@ async function PlayMultiple(msg, args, client, queueArr) {
     return true;
 }
 
+async function PlayUrl(msg, url, client, queueArr) {
+    let searchRes = undefined;
+
+    try {
+        searchRes = await ytdl.getInfo(url);
+    } catch(err) {
+        msg.channel.send(new Discord.MessageEmbed({
+            color: 13632027,
+            title: "Error",
+            description: `${err}`
+        }));
+
+        return false;
+    }
+
+    const first = searchRes.videoDetails;
+    if(!first) {
+        msg.channel.send("Nishto ne namerihme, tupa rabota.");
+        return false;
+    }
+
+    const schema = {
+        title: "Queued...",
+        description: `[\`${first.title}\`](${url})`,
+        color: 13632027,
+        footer: {
+            text: `Posted on: ${msg.createdAt.toDateString()}`
+        },
+        image: {
+          url: first.thumbnails[0].url
+        },
+        author: {
+          name: client.user.username,
+          icon_url: client.user.avatarURL()
+        }
+    };
+
+    msg.channel.send(new Discord.MessageEmbed(schema));
+
+    const minutes = (first.lengthSeconds / 60);
+    const seconds = (minutes - Math.floor(minutes)) * 60;
+
+    queueArr[msg.guild.id].Enqueue(msg, {
+        info: schema,
+        displayInfo: {
+            title: first.title,
+            duration: `${Math.floor(minutes)}:${Math.floor(seconds)}`
+        },
+        url: url
+    });
+
+    return true;
+}
+
 /**
  * @param {Discord.Message} msg 
  * @param {String} url 
@@ -221,4 +275,4 @@ async function DownloadMedia(msg, client, link, asMP3 = true) {
 }
 
 
-module.exports = { Play, PlayMultiple, QueuePlaylist, ListQueue, DownloadMedia };
+module.exports = { Play, PlayMultiple, PlayUrl, QueuePlaylist, ListQueue, DownloadMedia };

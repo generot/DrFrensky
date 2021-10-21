@@ -63,6 +63,10 @@
             "value": "```js\nUsage: \">>play <track_name>\"```"
           },
           {
+            "name": ":play_pause: `Play URL - queues a music track`",
+            "value": "```js\nUsage: \">>playurl <track_yt_url>\"```"
+          },
+          {
             "name": ":arrow_backward:  `Backtrace - goes to the previous track in the queue`",
             "value": "```js\nUsage: \">>goback\"```"
           },

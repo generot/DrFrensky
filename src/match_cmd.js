@@ -12,6 +12,7 @@ async function ExecuteCommand(handle, command, args) {
     case "curse": commands.Curse(message); break;
     case "leave": commands.Leave(message, queueArr); break;
     case "play": commands.Play(message, args.join(" "), client, queueArr); break;
+    case "playurl": commands.PlayUrl(message, args[0], client, queueArr); break;
     case "pmul": commands.PlayMultiple(message, args.join(" "), client, queueArr); break;
     case "playlist": commands.QueuePlaylist(message, args[0], client, queueArr); break;
     case "queue": commands.ListQueue(message, queueArr[message.guild.id]); break;
