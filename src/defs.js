@@ -54,6 +54,8 @@ class PlayQueue {
 
         this.viewbegin = 0;
         this.viewend = this.viewSize;
+        
+        this.circular = false;
     }
 
     GetCurrentSong() { 
